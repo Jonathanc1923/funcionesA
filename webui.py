@@ -150,7 +150,7 @@ title = f'Fooocus {fooocus_version.version}'
 if isinstance(args_manager.args.preset, str):
     title += ' ' + args_manager.args.preset
 
-
+shared.gradio_root = gr.Blocks(title="Propicart").queue()
 
 
 with shared.gradio_root:
@@ -1127,4 +1127,9 @@ shared.gradio_root.launch(
     allowed_paths=[modules.config.path_outputs],
     blocked_paths=[constants.AUTH_FILENAME]
 )
-shared.gradio_root = gr.Blocks(title="Propicart").queue()
+
+with shared.gradio_root:
+    title = gr.HTML("<h1>Fooocus - Interfaz de Usuario</h1>")
+    
+    currentTask = gr.State(worker.AsyncTask(args=[]))
+    inpaint_engine_state = gr.State('empty')
