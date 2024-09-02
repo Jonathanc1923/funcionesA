@@ -1129,7 +1129,7 @@ shared.gradio_root.launch(
 )
 
 with shared.gradio_root:
-    title = gr.HTML("<h1>Fooocus - Interfaz de Usuario</h1>")
+    title = gr.Markdown("# propicart - Interfaz de Usuario")
     
     currentTask = gr.State(worker.AsyncTask(args=[]))
     inpaint_engine_state = gr.State('empty')
