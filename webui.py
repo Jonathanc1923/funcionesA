@@ -154,8 +154,12 @@ shared.gradio_root = gr.Blocks(title="Propicart").queue()
 
 
 with shared.gradio_root:
+    title_html = gr.HTML("<h1 style='text-align: center;'>Propicart</h1>")
+
+    # Resto de la interfaz
     currentTask = gr.State(worker.AsyncTask(args=[]))
     inpaint_engine_state = gr.State('empty')
+
     with gr.Row():
         with gr.Column(scale=2):
             with gr.Row():
@@ -1128,8 +1132,4 @@ shared.gradio_root.launch(
     blocked_paths=[constants.AUTH_FILENAME]
 )
 
-with shared.gradio_root:
-    title = gr.Markdown("# propicart - Interfaz de Usuario")
-    
-    currentTask = gr.State(worker.AsyncTask(args=[]))
-    inpaint_engine_state = gr.State('empty')
+
